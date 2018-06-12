@@ -233,9 +233,14 @@ getStructureIds <- function(nestedList, name) {
 #' @keywords plot
 #'
 #' @export
-plotSlice <- function(mat3D, slice, col=colorRampPalette(c("white","black","red","yellow"),space="Lab")(100), t=0, add=F) {
+plotSlice <- function(mat3D, slice, col = colorRampPalette(c("white","black","red","yellow"),space = "Lab")(100),
+                      t = 0, add = FALSE, mirror_image = FALSE) {
   matT <- mat3D[,,slice]
-  image(matT, col=col, zlim=c(t, max(matT, na.rm=T)), asp=1, add=add)  # fix aspect ratio
+  if (!mirror_image) {
+    image(matT, col=col, zlim=c(t, max(matT, na.rm=T)), asp=1, add=add)  # fix aspect ratio
+  } else {
+    image(Thermimage::mirror.matrix(matT), col=col, zlim=c(t, max(matT, na.rm=T)), asp=1, add=add)  # fix aspect ratio
+  }
 }
 
 #' \code{\link{plotSlice}} with colors set to look more like an x-ray
@@ -252,8 +257,8 @@ plotSlice <- function(mat3D, slice, col=colorRampPalette(c("white","black","red"
 #' @keywords plot, modification
 #'
 #' @export
-plotSliceXray <- function(mat3D, slice, t=0, add=F) {
-  plotSlice(mat3D, slice, col=colorRampPalette(c("white", "black"),space="Lab")(100), t=t, add=add)
+plotSliceXray <- function(mat3D, slice, t = 0, add = F, ...) {
+  plotSlice(mat3D, slice, col = colorRampPalette(c("white", "black"),space = "Lab")(100), t = t, add = add, ...)
 }
 
 #' Plot slice of 3D volume without thresholding and allowing for negative expression values. Used for comparing spatial expression of upregulated vs. downregulated gene sets.
@@ -270,9 +275,15 @@ plotSliceXray <- function(mat3D, slice, t=0, add=F) {
 #' @keywords plot
 #'
 #' @export
-plotSliceComp <- function(mat3D, slice, col=colorRampPalette(c("green","blue", "black","red","yellow"),space="Lab")(100), add=F) {
-  matT <- mat3D[,,slice]
-  image(matT, col=col, zlim=c(min(matT, na.rm=T), max(matT, na.rm=T)), asp=1, add=add)  # fix aspect ratio
+plotSliceComp <- function(mat3D, slice, col = colorRampPalette(c("green","blue", "black","red","yellow"),space = "Lab")(100),
+                          add = FALSE, mirror_image = FALSE) {
+  matT <- mat3D[, , slice]
+  if (!mirror_image) {
+    image(matT, col = col, zlim = c(min(matT, na.rm = T), max(matT, na.rm = T)), asp = 1, add = add)  # fix aspect ratio
+  } else {
+    image(Thermimage::mirror.matrix(matT), col = col, zlim = c(min(matT, na.rm = T), max(matT, na.rm = T)), asp = 1, add = add)  # fix aspect ratio
+
+  }
 }
 
 
@@ -290,11 +301,17 @@ plotSliceComp <- function(mat3D, slice, col=colorRampPalette(c("green","blue", "
 #' @keywords plot
 #'
 #' @export
-plotProjection <- function(mat3D, col=colorRampPalette(c("white","black","red","yellow"),space="Lab")(100), t=0, add=F) {
+plotProjection <- function(mat3D, col=colorRampPalette(c("white","black","red","yellow"),space="Lab")(100), t=0, add=F,
+                           mirror_image = FALSE) {
   # threshold to get rid of noise
   mat3D[mat3D <= t] <- 0
   projmat <- apply(mat3D, 2, rowSums, na.rm=T)
-  image(projmat, col=col, zlim=c(t, max(projmat, na.rm=T)), asp=1, add=add)
+  if (!mirror_image) {
+    image(projmat, col = col, zlim = c(t, max(projmat, na.rm = T)), asp = 1, add = add)
+  } else {
+    image(Thermimage::mirror.matrix(projmat), col = col, zlim = c(t, max(projmat, na.rm = T)), asp = 1, add = add)
+
+  }
 }
 
 #' \code{\link{plotProjection}} with colors set to look more like an x-ray
@@ -306,8 +323,8 @@ plotProjection <- function(mat3D, col=colorRampPalette(c("white","black","red","
 #' @keywords plot, modification
 #'
 #' @export
-plotProjectionXray <- function(mat3D, t=0, add=F) {
-  plotProjection(mat3D, col=colorRampPalette(c("white", "black"),space="Lab")(100), t=t, add=add)
+plotProjectionXray <- function(mat3D, t = 0, add = F, ...) {
+  plotProjection(mat3D, col = colorRampPalette(c("white", "black"),space = "Lab")(100), t = t, add = add, ...)
 }
 
 

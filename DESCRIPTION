@@ -13,6 +13,8 @@ Maintainer: Jean Fan <jeanfan@fas.harvard.edu>
 License: MIT
 LazyData: TRUE
 VignetteBuilder: knitr
+Imports:
+    Thermimage
 Suggests:
     knitr,
     rgl

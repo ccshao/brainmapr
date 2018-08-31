@@ -405,7 +405,7 @@ structurePlot <- function(cids, vol, annot, plot=F) {
 #' @keywords plot
 #'
 #' @export
-genePlot <- function(gl, expmat, gannot, t=0, weights=rep(1, length(gl)), plot=F, show_gene = TRUE) {
+genePlot <- function(gl, expmat, gannot, t=0, weights=rep(1, length(gl)), plot = FALSE) {
 
   # see what genes we have ISH data available
   glHave <- gl[gl %in% rownames(expmat)]
@@ -415,12 +415,10 @@ genePlot <- function(gl, expmat, gannot, t=0, weights=rep(1, length(gl)), plot=F
     print('No genes available')
     return(NA)
   } else {
-    if (show_gene) = TRUE {
-      print('Genes available:')
-      print(glHave)
-      print('Genes not available:')
-      print(glNothave)
-    }
+    print('Genes available:')
+    print(glHave)
+    print('Genes not available:')
+    print(glNothave)
   }
 
   # restrict to what we have

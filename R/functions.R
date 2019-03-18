@@ -225,6 +225,7 @@ getStructureIds <- function(nestedList, name) {
 #' @param col Color
 #' @param t Threshold used to remove noise
 #' @param add Boolean whether to overlay onto existing plot
+#' @param mirror_image turn the image to head up
 #'
 #' @examples
 #' data(vol3D)
@@ -267,6 +268,7 @@ plotSliceXray <- function(mat3D, slice, t = 0, add = F, ...) {
 #' @param slice Index of slice; limited to dimensions of mat3D
 #' @param col Color
 #' @param add Boolean whether to overlay onto existing plot
+#' @param mirror_image turn the image to head up
 #'
 #' @examples
 #' data(vol3D)
@@ -293,6 +295,7 @@ plotSliceComp <- function(mat3D, slice, col = colorRampPalette(c("green","blue",
 #' @param col Color
 #' @param t Threshold used to remove noise
 #' @param add Boolean whether to overlay onto existing plot
+#' @param mirror_image turn the image to head up
 #'
 #' @examples
 #' data(vol3D)

@@ -13,8 +13,10 @@ Maintainer: Jean Fan <jeanfan@fas.harvard.edu>
 License: MIT
 LazyData: TRUE
 VignetteBuilder: knitr
+Depends: R (>= 3.1.0)
 Imports:
     Thermimage
 Suggests:
     knitr,
     rgl
+RoxygenNote: 6.1.1

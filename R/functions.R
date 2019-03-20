@@ -17,31 +17,31 @@ NULL
 ##' @format 3D array
 ##' @docType data
 ##' @references \url{http://developingmouse.brain-map.org/}
-"annot3D"
+"example_annot3D"
 
 ##' Voxel level 3D Structure annotations of the embryonic 11.5 day old mouse brain
 ##' @format 3D array
 ##' @docType data
 ##' @references \url{http://developingmouse.brain-map.org/}
-"gannot3D"
+"example_gannot3D"
 
 ##' Matrix of gene expression where each row corresponds to a gene and columns correspond to 3D locations in space
 ##' @format 2D array (matrix)
 ##' @docType data
 ##' @references \url{http://developingmouse.brain-map.org/}
-"mat"
+"example_mat"
 
 ##' Parsed StructureGraph for the developing mouse brain. Contains structure IDs and names in a hierarchical format.
 ##' @format 3D array
 ##' @docType data
 ##' @references \url{http://developingmouse.brain-map.org/}
-"structureID"
+"example_structureID"
 
 ##' Pixel level 3D volume of the embryonic 11.5 day old mouse brain
 ##' @format 3D array
 ##' @docType data
 ##' @references \url{http://developingmouse.brain-map.org/}
-"vol3D"
+"example_vol3D"
 
 
 #####

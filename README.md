@@ -1,4 +1,4 @@
-#brainmapr 
+# brainmapr 
 
 ```
 devtools::install_github("ccshao/brainmapr")
